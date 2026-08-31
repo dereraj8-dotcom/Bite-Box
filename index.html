@@ -49,6 +49,46 @@
     nav #menu ul  a:hover{
         color: green;
     }
+     body {
+            height: 100vh;
+            width: 100%;
+        }
+
+        header {
+            height: 10vh;
+        }
+
+        main {
+            min-height: 80vh;
+            border: 2px solid black;
+        }
+
+        footer {
+            min-height: 10vh;
+        }
+
+        .main-content h2 {
+            text-align: center;
+        }
+
+        .products-container {
+            border: 2px solid black;
+            padding: 5px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 5px;
+        }
+
+        .card {
+            width: 250px;
+            border: 2px solid black;
+            overflow: hidden;
+        }
+
+        .product-logo img {
+            height: 200px;
+            width: 100%;
+        }
    </style>
 </head>
 <body>
@@ -67,7 +107,78 @@
         </div>
     </nav>
     </header>
-    <main></Section></main>
-    <footer></footer>
+     <main>
+
+        <div class="main-content">
+            <h2>Our Products</h2>
+        </div>
+
+
+        <div class="products-container">
+
+            <div class="card">
+
+                <section class="product-logo">
+
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQv7Rk6VUUor1jNpW2Anr7UoMVNV4ELa7bT588bim9GJg&s=10"
+                        alt="Product">
+
+                </section>
+
+
+                <section class="product-detail">
+
+                    <p>
+                        A description of goods is a clear statement that explains
+                        what an item is and how it is used.
+                    </p>
+
+                    <p>₹10</p>
+
+                    <button>Add</button>
+
+                </section>
+
+            </div>
+
+
+            <div class="card">
+
+                <section class="product-logo">
+
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQv7Rk6VUUor1jNpW2Anr7UoMVNV4ELa7bT588bim9GJg&s=10"
+                        alt="Product">
+
+                </section>
+
+
+                <section class="product-detail">
+
+                    <p>
+                        A description of goods is a clear statement that explains
+                        what an item is and how it is used.
+                    </p>
+
+                    <p>₹10</p>
+
+                    <button>Add</button>
+
+                </section>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <footer>
+
+        <section class="footer-content">
+            <p>Footer tag is under construction</p>
+        </section>
+
+    </footer>
+
 </body>
 </html>
