@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student | sign In</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        form {
+            width: 220px;
+        }
+
+        h2 {
+            text-align: center;
+           
+        }
+
+        .form-row {
+            display: flex;
+            align-items: center;
+          
+        }
+
+        label {
+            width: 85px;
+            text-align: center;
+            margin-right: 5px;
+            font-size: 18px;
+          
+        }
+
+       
+
+        .button {
+            text-align: center;
+            margin-top: 5px;
+        }
+
+       
+    </style>
+    
+</head>
+<body>
+   
+    <form method="post" action="index.html">
+        <h2>Sign In</h2>
+        <div class="form-row">
+            <label>Username:</label>
+            <input type="text" placeholder="Enter Email" required>
+        </div>
+
+        <div class="form-row">
+            <label>Password:</label>
+            <input type="password" required>
+        </div>
+
+        <div class="button">
+            <input type="submit" value="Sign In">
+        </div>
+
+    </form>
+</body>
+</html>
