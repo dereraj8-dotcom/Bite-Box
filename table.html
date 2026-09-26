@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table</title>
+    <style>
+       table{
+        border-collapse: collapse;
+        margin: 0 auto;
+       }
+       td{
+        vertical-align: middle;
+        text-align: center;
+        font-family: 'Courier New', Courier, monospace;
+        
+       }
+    </style>
+</head>
+<body>
+        <table border="1">
+        <tr>
+            <th>Order ID</th>
+            <th>Customer Name</th>
+            <th>Description</th>
+            <th>Qty</th>
+            <th>Price</th>
+        </tr>
+        <tr>
+            <td rowspan="3">1</td>
+            <td rowspan="3">A</td>
+            <td>X</td>
+            <td>1</td>
+            <td>900</td>
+        </tr>
+        <tr>
+            <td>Y</td>
+            <td>2</td>
+            <td>1800</td>
+        </tr>
+        <tr>
+            <td>Z</td>
+            <td>10</td>
+            <td>3600</td>
+        </tr>
+        <tr>
+            <td colspan="4">Total</td>
+            <td>6300</td>
+        </tr>
+    </table>
+</body>
+</html>
