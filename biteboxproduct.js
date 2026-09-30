@@ -113,41 +113,62 @@ const products = [
     }
 ];
 
-products.forEach(function(product){
+const cart = [];
+
+products.forEach(function (product) {
     const card = document.createElement("div");
-card.classList.add("card");
+    card.classList.add("card");
 
-const section1 = document.createElement("section");
-section1.classList.add("product-logo");
+    const section1 = document.createElement("section");
+    section1.classList.add("product-logo");
 
-const productimage = document.createElement("img");
-productimage.src= product.image;
+    const productimage = document.createElement("img");
+    productimage.src = product.image;
 
-section1.appendChild(productimage);
+    section1.appendChild(productimage);
 
-const section2 = document.createElement("section");
-section2.classList.add("product-details");
+    const section2 = document.createElement("section");
+    section2.classList.add("product-details");
 
-const Productname = document.createElement("p");
-Productname.textContent = product.name;
+    const Productname = document.createElement("p");
+    Productname.textContent = product.name;
 
-const Productprice = document.createElement("p");
-Productprice.textContent = product.price;
+    const Productprice = document.createElement("p");
+    Productprice.textContent = product.price;
 
-const addtocart = document.createElement("Button");
-addtocart.textContent= "ADD";
+    const addtocart = document.createElement("Button");
+    addtocart.textContent = "ADD";
+    addtocart.addEventListener("click", addBasketItem);
+    function addBasketItem() {
+        // alert(product.name);
+        const existingProduct = cart.find(function (prod) {
+            return prod.id === product.id;
+        });
+        if (existingProduct) {
+            existingProduct.quantity++;
+        }
+        
+        else {
+            const item = {
+                id: product.id,
+                name: product.name,
+                price: product.price,
+                quantity: 1
+            };
+            cart.push(item);
+        }
+        console.log(cart);
+    }
 
-section2.appendChild(Productname);
-section2.appendChild(Productprice);
-section2.appendChild(addtocart);
+    section2.appendChild(Productname);
+    section2.appendChild(Productprice);
+    section2.appendChild(addtocart);
 
 
-card.appendChild(section1);
-card.appendChild(section2);
+    card.appendChild(section1);
+    card.appendChild(section2);
 
-const productcontainer = document.getElementById("products-container");
-productcontainer.appendChild(card);
-
-
+    const productcontainer = document.getElementById("products-container");
+    productcontainer.appendChild(card);
 });
 
