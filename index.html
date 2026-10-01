@@ -3,74 +3,100 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>BiteBox</title>
-    <mata name="author" content="IT Vedant" />
-    <!--<meta http-equiv="refresh" content="10;https://www.itvedant.com/"/>-->
+
+    <meta name="author" content="IT Vedant" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
     <link
       href="https://fonts.googleapis.com/css2?family=Honk:MORF@15&family=Lavishly+Yours&family=Modak&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+    <script src="biteboxproduct.js" defer></script>
+
     <style>
       * {
-        margin: 0px;
-        padding: 0px;
+        margin: 0;
+        padding: 0;
         box-sizing: border-box;
-        font-family: "Modak", system-ui;
+        font-family: "Manrope", sans-serif;
         font-weight: 400;
         font-style: normal;
       }
-      nav {
-        display: flex;
-        justify-content: space-between;
-        background-color: black;
-      }
-      nav #logo {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-        color: white;
-      }
-      nav #logo img {
-        width: 50px;
-        height: 50px;
-        border-radius: 100%;
-      }
-      nav #menu ul {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 20px;
-        padding: 10px;
-      }
-      nav #menu ul a {
-        text-decoration: none;
-        color: white;
-      }
-      nav #menu ul a:hover {
-        color: green;
-      }
+
       body {
-        height: 100vh;
         width: 100%;
+        min-height: 100vh;
       }
 
       header {
         height: 10vh;
       }
 
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: black;
+        padding: 10px 20px;
+        min-height: 10vh;
+      }
+
+      nav #logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: white;
+      }
+
+      nav #logo img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      nav #menu ul {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+        padding: 10px;
+        list-style: none;
+      }
+
+      nav #menu ul a {
+        text-decoration: none;
+        color: white;
+      }
+
+      nav #menu ul a:hover {
+        color: orangered;
+      }
+
       main {
         min-height: 80vh;
         border: 2px solid black;
-      }
-
-      footer {
-        min-height: 10vh;
+        padding: 20px;
       }
 
       .main-content h2 {
         text-align: center;
+        margin-bottom: 20px;
       }
 
       .products-container {
@@ -79,11 +105,9 @@
         grid-template-columns: repeat(4, 1fr);
         gap: 20px;
         width: 100%;
-        height: 100%;
       }
 
-      .card1 {
-        
+      .card {
         border: 2px solid black;
         overflow: hidden;
         border-radius: 10px;
@@ -91,49 +115,20 @@
         display: flex;
         flex-direction: column;
         gap: 10px;
-        transition: tranform 0.3s;
-         box-shadow: 2px 2px 4px black;
-
-      }
-      .card1:hover{
-        transform: translateY(-2%); scale(1.2);
-
-      }
-      .product-logo1  {
-        height: 200px;
-        width: 100%;
-        border: 2px solid black;
-        align-items: center;
-        justify-content: center;
-        display: flex;
-        border-radius: 10px;
-
-      }
-       .product-logo1 img {
-        height: 200px;
-        width: 100%;
-        object-fit: cover;
-         border-radius: 10px;
-
-      }
-       .card2 {
-    
-        border: 2px solid black;
-        overflow: hidden;
-        border-radius: 10px;
-        padding: 10px;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        transition: tranform 0.3s;
+        transition:
+          transform 0.8s ease,
+          box-shadow 0.8s ease;
         box-shadow: 2px 2px 4px black;
-
-      }
-      .card2:hover{
-        transform: translateY(-2%); scale(1.2);
+        transform: rotate(0deg);
+        background-color: white;
       }
 
-      .product-logo2{
+      .card:hover {
+        transform: translateY(-5px) scale(1.02);
+        box-shadow: 4px 6px 10px black;
+      }
+
+      .product-logo {
         height: 200px;
         width: 100%;
         border: 2px solid black;
@@ -141,45 +136,93 @@
         justify-content: center;
         display: flex;
         border-radius: 10px;
-        
+        overflow: hidden;
       }
-       .product-logo2 img{
+
+      .product-logo img {
         height: 200px;
         width: 100%;
         object-fit: cover;
-         border-radius: 10px;
+        border-radius: 10px;
       }
-      .product-detail{
+
+      .product-detail {
         display: flex;
         text-align: center;
         gap: 10px;
         flex-direction: column;
+        align-items: center;
       }
-      button{
+
+      .product-detail p {
+        line-height: 1.5;
+      }
+
+      button {
         padding: 10px;
         border: none;
         cursor: pointer;
         border-radius: 5px;
         background-color: orangered;
-        color: ;
+        color: white;
+        text-align: center;
+        width: 100%;
       }
 
+      button:hover {
+        background-color: darkorange;
+      }
+
+      footer {
+        min-height: 10vh;
+        background-color: black;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      @media (max-width: 900px) {
+        .products-container {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 600px) {
+        nav {
+          flex-direction: column;
+          gap: 10px;
+        }
+
+        nav #menu ul {
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+
+        .products-container {
+          grid-template-columns: 1fr;
+        }
+      }
     </style>
   </head>
+
   <body>
     <header>
       <nav>
         <div id="logo">
           <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXnCVLpVATBcGJlK2_Laor9Zwl0xD1A1FKE7veWu2m0mBSkupbq15s7Hgv&s=10`"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXnCVLpVATBcGJlK2_Laor9Zwl0xD1A1FKE7veWu2m0mBSkupbq15s7Hgv&s=10"
+            alt="BiteBox Logo"
           />
+
           <h3>BiteBox</h3>
         </div>
+
         <div id="menu">
-          <ul style="list-style-type: upper-roman" start="10">
+          <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="index.html">Contacts</a></li>
-            <li><a href="index.html">Cart</a></li>
+            <li data-bs-toggle="modal" data-bs-target="#exampleModal"><a>Cart</a></li>
             <li><a href="index.html">About Us</a></li>
             <li><a href="index.html">Login</a></li>
           </ul>
@@ -190,42 +233,146 @@
       <div class="main-content">
         <h2>Our Products</h2>
       </div>
-      <div class="products-container">
-        <div class="card1">
-          <section class="product-logo1">
-            <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQv7Rk6VUUor1jNpW2Anr7UoMVNV4ELa7bT588bim9GJg&s=10"
-              alt="Product"
-            />
-        
-          </section>
-          <section class="product-detail">
-            <p>
-              A description of goods is a clear statement that explains what an
-              item is and how it is used.
-            </p>
-            <p>₹199</p>
-            <button>Add</button>
-          </section>
-        </div>
-        <div class="card2">
-          <section class="product-logo2">
-            <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQv7Rk6VUUor1jNpW2Anr7UoMVNV4ELa7bT588bim9GJg&s=10"
-              alt="Product"
-            />
-          </section>
-          <section class="product-detail">
-            <p>
-              A description of goods is a clear statement that explains what an
-              item is and how it is used.
-            </p>
-            <p>₹199</p>
-            <button>Add</button>
-          </section>
+
+      <div class="products-container" id="products-container">
+        <!-- <div class="card">
+
+      <section class="product-logo">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQv7Rk6VUUor1jNpW2Anr7UoMVNV4ELa7bT588bim9GJg&s=10"
+          alt="Product 1"
+        />
+      </section>
+
+      <section class="product-detail">
+
+        <p>
+          A description of goods is a clear statement that explains what
+          an item is and how it is used.
+        </p>
+
+        <p>₹199</p>
+
+        <button>Add</button>
+
+      </section>
+
+    </div> -->
+
+        <!-- <div class="card">
+
+      <section class="product-logo">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQv7Rk6VUUor1jNpW2Anr7UoMVNV4ELa7bT588bim9GJg&s=10"
+          alt="Product 2"
+        />
+      </section>
+
+      <section class="product-detail">
+
+        <p>
+          A description of goods is a clear statement that explains what
+          an item is and how it is used.
+        </p>
+
+        <p>₹199</p>
+
+        <button>Add</button>
+
+      </section>
+
+    </div>
+
+    
+
+    <div class="card">
+
+      <section class="product-logo">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQv7Rk6VUUor1jNpW2Anr7UoMVNV4ELa7bT588bim9GJg&s=10"
+          alt="Product 3"
+        />
+      </section>
+
+      <section class="product-detail">
+
+        <p>
+          A description of goods is a clear statement that explains what
+          an item is and how it is used.
+        </p>
+
+        <p>₹199</p>
+
+        <button>Add</button>
+
+      </section>
+
+    </div>
+
+
+
+    <div class="card">
+
+      <section class="product-logo">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQv7Rk6VUUor1jNpW2Anr7UoMVNV4ELa7bT588bim9GJg&s=10"
+          alt="Product 4"
+        />
+      </section>
+
+      <section class="product-detail">
+
+        <p>
+          A description of goods is a clear statement that explains what
+          an item is and how it is used.
+        </p>
+
+        <p>₹199</p>
+
+        <button>Add</button>
+
+      </section> 
+
+     </div> -->
+      </div>
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">
+                Modal title
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">...</div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+              <button type="button" class="btn btn-primary">
+                Save changes
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </main>
+
     <footer>
       <section class="footer-content">
         <p>Footer tag is under construction</p>
