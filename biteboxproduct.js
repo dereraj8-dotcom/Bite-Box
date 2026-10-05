@@ -156,6 +156,7 @@ products.forEach(function (product) {
                 quantity: 1
             };
             cart.push(item);
+            document.getElementById("qty").firstChild.textContent = cart.length;
         }
         console.log(cart);
     }
@@ -172,3 +173,41 @@ products.forEach(function (product) {
     productcontainer.appendChild(card);
 });
 
+
+const cartLink =document.getElementById("cartModal");
+cartLink.addEventListener("click",showCart);
+let subTotal =0;
+function showCart(){
+    const billTable = document.getElementById("billing");
+    let tableCode ="";
+   tableCode+=`<table class="table table-bordered table-striped">
+<tr>
+<th>Product ID </th>
+<th>Product Name</th>
+<th>Price</th>
+<th>Quantity</th>
+<th>Total</th>
+</tr>`;
+cart.forEach(function(item) {
+
+    let total = item.price * item.quantity;
+     subTotal = subTotal+ total;
+
+    let x = `<tr>
+        <td>${item.id}</td>
+        <td>${item.name}</td>
+        <td>${item.price}</td>
+        <td>${item.quantity}</td>
+        <td>${total}</td>
+    </tr>`;
+
+    tableCode += x;
+});
+
+tableCode+=`<tr class="text-end">
+<td colspan="4"> Total Billing</td>
+<td>${subTotal}</td>
+</tr>`;
+tableCode+=`</table>`;
+billTable.innerHTML = tableCode;
+}

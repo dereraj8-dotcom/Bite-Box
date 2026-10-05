@@ -222,7 +222,23 @@
           <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="index.html">Contacts</a></li>
-            <li data-bs-toggle="modal" data-bs-target="#exampleModal"><a>Cart</a></li>
+            <li
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+              id="cartModal"
+              class="nav-item position-relative"
+            >
+              <a
+                >Cart
+                <span
+                  id="qty"
+                  class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                >
+                  0
+                  <!-- <span class="visually-hidden">unread messages</span> -->
+                </span>
+              </a>
+            </li>
             <li><a href="index.html">About Us</a></li>
             <li><a href="index.html">Login</a></li>
           </ul>
@@ -346,7 +362,7 @@
           <div class="modal-content">
             <div class="modal-header">
               <h1 class="modal-title fs-5" id="exampleModalLabel">
-                Modal title
+                Your Basket
               </h1>
               <button
                 type="button"
@@ -355,7 +371,7 @@
                 aria-label="Close"
               ></button>
             </div>
-            <div class="modal-body">...</div>
+            <div class="modal-body" id="billing">...</div>
             <div class="modal-footer">
               <button
                 type="button"
@@ -364,9 +380,7 @@
               >
                 Close
               </button>
-              <button type="button" class="btn btn-primary">
-                Save changes
-              </button>
+              <button type="button" class="btn btn-primary">Buy Now</button>
             </div>
           </div>
         </div>
