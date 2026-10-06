@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login form</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            margin: 0;
+            background-color: white;
+            font-family: Arial, Helvetica, sans-serif;
+
+        }
+        .login-box{
+            position:absolute;
+            top: 200px;
+            left: 50%;
+            transform: translate(-50%);
+            width: 380px;
+            height: 260px;
+            background-color: #F1E7BA;
+            padding: 30px;
+        }
+        .login-box input{
+            width: 100%;
+            height: 30px;
+            border: none;
+            outline: none;
+            padding: 7px;
+            margin-bottom: 25px;
+            font-size: 13px;
+        }
+        .login-box button{
+            width: 100%;
+            height: 45px;
+            background-color: #e84420;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+   
+
+    </style>
+</head>
+<body>
+    <div class="login-box">
+        <label>Enter Username</label>
+        <input type="text" placeholder="Enter email ID">
+
+        <label>Enter Password</label>
+        <input type="password" placeholder="password Here">
+        <button>Login</button>
+    </div>
+</body>
+</html>

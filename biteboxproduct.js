@@ -147,7 +147,7 @@ products.forEach(function (product) {
         if (existingProduct) {
             existingProduct.quantity++;
         }
-        
+
         else {
             const item = {
                 id: product.id,
@@ -174,13 +174,14 @@ products.forEach(function (product) {
 });
 
 
-const cartLink =document.getElementById("cartModal");
-cartLink.addEventListener("click",showCart);
-let subTotal =0;
-function showCart(){
+const cartLink = document.getElementById("cartModal");
+cartLink.addEventListener("click", showCart);
+
+function showCart() {
+    let subTotal = 0;
     const billTable = document.getElementById("billing");
-    let tableCode ="";
-   tableCode+=`<table class="table table-bordered table-striped">
+    let tableCode = "";
+    tableCode +=`<table class="table table-bordered table-striped">
 <tr>
 <th>Product ID </th>
 <th>Product Name</th>
@@ -188,26 +189,50 @@ function showCart(){
 <th>Quantity</th>
 <th>Total</th>
 </tr>`;
-cart.forEach(function(item) {
+    cart.forEach(function (item) {
 
-    let total = item.price * item.quantity;
-     subTotal = subTotal+ total;
+        let total = item.price * item.quantity;
+        subTotal = subTotal + total;
 
-    let x = `<tr>
-        <td>${item.id}</td>
-        <td>${item.name}</td>
-        <td>${item.price}</td>
-        <td>${item.quantity}</td>
-        <td>${total}</td>
-    </tr>`;
+        let x = `<tr>
+    <td>${item.id}</td>
+    <td>${item.name}</td>
+    <td>${item.price}</td>
+    <td>
+        <button class="btn btn-danger btn-sm" onclick="decreaseQty(${item.id})">-</button>
+        <span>${item.quantity}</span>
+        <button class="btn btn-success btn-sm" onclick="increaseQty (${item.id})">+</button>
+    </td>
+    <td>${total}</td>
+</tr>`;
+        tableCode += x;
+    });
 
-    tableCode += x;
-});
-
-tableCode+=`<tr class="text-end">
+    tableCode +=`<tr class="text-end">
 <td colspan="4"> Total Billing</td>
 <td>${subTotal}</td>
 </tr>`;
-tableCode+=`</table>`;
-billTable.innerHTML = tableCode;
+    tableCode += `</table>`;
+    billTable.innerHTML = tableCode;
+}
+function increaseQty(productID) {
+
+    const existingProduct = cart.find(function (prod) {
+        return prod.id === productID;
+    });
+
+    existingProduct.quantity++;
+
+    showCart();
+}
+
+function decreaseQty(productID) {
+
+    const existingProduct = cart.find(function (prod) {
+        return prod.id === productID;
+    });
+
+    existingProduct.quantity--;
+
+    showCart();
 }

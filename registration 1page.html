@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Student Registration Form</title>
+</head>
+
+<body>
+
+    <h1>Student Registration Form</h1>
+
+    <form action="/register" method="get">
+
+        <!-- Text Input -->
+        <label for="fullname">Full Name:</label>
+        <input type="text"
+               id="fullname"
+               name="fullname"
+               placeholder="Enter your full name"
+		value="ITVedant" 
+		pattern="[A-Za-z]+" autocomplete
+               required>
+
+        <br><br>
+
+
+        <!-- Email -->
+        <label for="email">Email:</label>
+        <input type="email"
+               id="email"
+               name="email"
+               placeholder="example@gmail.com"
+               required>
+
+        <br><br>
+
+
+        <!-- Password -->
+        <label for="password">Password:</label>
+       <input type="password"
+       id="password"
+       name="password"
+       minlength="6"
+       maxlength="8"
+       pattern="^(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9]).{6,8}$"
+       title="Password must contain at least one uppercase letter, one number, one special character, and be 6 to 8 characters long."
+       required>
+
+        <br><br>
+
+
+        <!-- Number -->
+        <label for="age">Age:</label>
+        <input type="number"
+               id="age"
+               name="age"
+               min="18"
+               max="60" autofocus>
+
+        <br><br>
+
+
+        <!-- Date -->
+        <label for="dob">Date of Birth:</label>
+        <input type="date"
+               id="dob"
+               name="dob" >
+
+        <br><br>
+
+
+        <!-- Time -->
+        <label for="time">Preferred Class Time:</label>
+        <input type="time"
+               id="time"
+               name="time">
+
+        <br><br>
+
+
+        <!-- Date and Time -->
+        <label for="appointment">Interview Date & Time:</label>
+        <input type="datetime-local"
+               id="appointment"
+               name="appointment">
+
+        <br><br>
+
+
+        <!-- Month -->
+        <label for="joiningmonth">Joining Month:</label>
+        <input type="month"
+               id="joiningmonth"
+               name="joiningmonth">
+
+        <br><br>
+
+
+        <!-- Week -->
+        <label for="week">Preferred Week:</label>
+        <input type="week"
+               id="week"
+               name="week">
+
+        <br><br>
+
+
+        <!-- Telephone -->
+        <label for="phone">Mobile Number:</label>
+        <input type="tel"
+               id="phone"
+               name="phone"
+               placeholder="Enter mobile number">
+
+        <br><br>
+
+
+        <!-- URL -->
+        <label for="linkedin">LinkedIn Profile:</label>
+        <input type="url"
+               id="linkedin"
+               name="linkedin"
+               placeholder="https://linkedin.com/...">
+
+        <br><br>
+
+
+        <!-- Search -->
+        <label for="search">Search:</label>
+        <input type="search"
+               id="search"
+               name="search"
+               placeholder="Search course">
+
+        <br><br>
+
+
+        <!-- Color -->
+        <label for="color">Favorite Color:</label>
+        <input type="color"
+               id="color"
+               name="color">
+
+        <br><br>
+
+
+        <!-- Range -->
+        <label for="rating">Interest Level:</label>
+
+        <input type="range"
+               id="rating"
+               name="rating"
+               min="1"
+               max="10"
+               value="5">
+
+        <br><br>
+
+
+        <!-- Radio Buttons -->
+        <fieldset>
+
+            <legend>Gender</legend>
+
+            <input type="radio"
+                   id="male"
+                   name="gender"
+                   value="male">
+
+            <label for="male">Male</label>
+
+
+            <input type="radio"
+                   id="female"
+                   name="gender"
+                   value="female">
+
+            <label for="female">Female</label>
+
+
+            <input type="radio"
+                   id="other"
+                   name="gender"
+                   value="other">
+
+            <label for="other">Other</label>
+
+        </fieldset>
+
+        <br>
+        <!-- Radio Buttons -->
+        <fieldset>
+
+            <legend>Status</legend>
+
+            <input type="radio"
+                   id="Married"
+                   name="Status"
+                   value="Married">
+
+            <label for="Married">Married</label>
+
+
+            <input type="radio"
+                   id="UnMarried"
+                   name="status"
+                   value="UnMarried">
+
+            <label for="UnMarried">UnMarried</label>
+
+
+            <input type="radio"
+                   id="Divorce"
+                   name="status"
+                   value="Divorce">
+
+            <label for="Divorce">Divorce</label>
+
+        </fieldset>
+<br>
+
+        <!-- Checkbox -->
+        <fieldset>
+
+            <legend>Skills</legend>
+
+            <input type="checkbox"
+                   id="html"
+                   name="skills"
+                   value="HTML">
+
+            <label for="html">HTML</label>
+
+
+            <input type="checkbox"
+                   id="css"
+                   name="skills"
+                   value="CSS">
+
+            <label for="css">CSS</label>
+
+
+            <input type="checkbox"
+                   id="javascript"
+                   name="skills"
+                   value="JavaScript">
+
+            <label for="javascript">JavaScript</label>
+
+        </fieldset>
+
+        <br>
+
+
+        <!-- Select + Option + Optgroup -->
+        <label for="course">Select Course:</label>
+
+        <select id="course" name="course">
+
+            <optgroup label="Development">
+                <option value="java">Java Full Stack</option>
+                <option value="python">Python Full Stack</option>
+                <option value="mern" selected>MERN Stack</option>
+            </optgroup>
+
+            <optgroup label="Data">
+                <option value="data-science">Data Science</option>
+                <option value="data-analytics">Data Analytics</option>
+            </optgroup>
+
+        </select>
+
+        <br><br>
+
+
+        <!-- Datalist -->
+        <label for="preferredcourse">
+            Type / Select Course:
+        </label>
+
+        <input type="text"
+               id="preferredcourse"
+               name="preferredcourse"
+               list="course-list"
+               placeholder="Start typing...">
+
+        <datalist id="course-list">
+
+            <option value="Java Full Stack">
+            <option value="Python Full Stack">
+            <option value="MERN Stack">
+            <option value="Data Science">
+            <option value="Cyber Security">
+
+        </datalist>
+
+        <br><br>
+
+
+        <!-- Textarea -->
+        <label for="address">Address:</label>
+
+        <br>
+
+        <textarea id="address"
+                  name="address"
+                  rows="5"
+                  cols="80"
+                  placeholder="Enter your address"></textarea>
+
+        <br><br>
+
+
+        <!-- File -->
+        <label for="resume">Upload Resume:</label>
+
+        <input type="file"
+               id="resume"
+               name="resume">
+
+        <br><br>
+
+
+        <!-- Hidden -->
+        <input type="hidden"
+               name="registration_source"
+               value="website">
+
+
+        <!-- Output -->
+        <fieldset>
+
+            <legend>Course Fee Calculation</legend>
+
+            <label for="fee">Course Fee:</label>
+
+            <input type="number"
+                   id="fee"
+                   name="fee"
+                   value="50000">
+
+            <br><br>
+
+            <label for="discount">Discount:</label>
+
+            <input type="number"
+                   id="discount"
+                   name="discount"
+                   value="10">
+
+            <br><br>
+
+            <label>Final Fee:</label>
+
+            <output name="finalfee">
+                ₹45,000
+            </output>
+
+        </fieldset>
+
+        <br>
+
+
+        <!-- Meter -->
+        <label for="skilllevel">
+            Current Skill Level:
+        </label>
+
+        <meter id="skilllevel"
+               min="0"
+               max="100"
+               value="70">
+            70%
+        </meter>
+
+        <br><br>
+
+
+        <!-- Progress -->
+        <label for="registrationprogress">
+            Registration Progress:
+        </label>
+
+        <progress id="registrationprogress"
+                  value="70"
+                  max="100">
+            70%
+        </progress>
+
+        <br><br>
+
+
+        <!-- Buttons -->
+        <button type="submit">
+            Register
+        </button>
+
+        <button type="reset">
+            Reset
+        </button>
+
+        <button type="button"
+                onclick="alert('Button clicked!')">
+            Check
+        </button>
+
+    </form>
+
+</body>
+</html>
