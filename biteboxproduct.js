@@ -113,9 +113,18 @@ const products = [
     }
 ];
 
-const cart = [];
+let cart = [];
+showProducts(products);
 
-products.forEach(function (product) {
+const search= document.getElementById("search");
+    search.addEventListener("input",searchProduct);
+
+
+function showProducts(productList){
+    document.getElementById("products-container").innerHTML="";
+    
+
+productList.forEach(function (product) {
     const card = document.createElement("div");
     card.classList.add("card");
 
@@ -171,7 +180,11 @@ products.forEach(function (product) {
 
     const productcontainer = document.getElementById("products-container");
     productcontainer.appendChild(card);
+
+
+
 });
+}
 
 
 const cartLink = document.getElementById("cartModal");
@@ -188,6 +201,7 @@ function showCart() {
 <th>Price</th>
 <th>Quantity</th>
 <th>Total</th>
+<th>Action</th>
 </tr>`;
     cart.forEach(function (item) {
 
@@ -198,19 +212,25 @@ function showCart() {
     <td>${item.id}</td>
     <td>${item.name}</td>
     <td>${item.price}</td>
-    <td>
-        <button class="btn btn-danger btn-sm" onclick="decreaseQty(${item.id})">-</button>
-        <span>${item.quantity}</span>
-        <button class="btn btn-success btn-sm" onclick="increaseQty (${item.id})">+</button>
+   <td>
+                <button class="btn btn-danger btn-sm" onclick="decreaseQty(${item.id})">-</button>
+                <span>${item.quantity}</span>
+                <button class="btn btn-success btn-sm" onclick="increaseQty(${item.id})">+</button>
     </td>
     <td>${total}</td>
+    <td class="text-center">
+     <button class="btn btn-outline-danger btn-sm" onClick = "removeItem(${item.id})">
+     <i class="bi bi-trash"></i>
+     </button>
+
+    </td>
 </tr>`;
         tableCode += x;
     });
 
     tableCode +=`<tr class="text-end">
 <td colspan="4"> Total Billing</td>
-<td>${subTotal}</td>
+<td colspan = "2" class="text-center">${subTotal}</td>
 </tr>`;
     tableCode += `</table>`;
     billTable.innerHTML = tableCode;
@@ -232,7 +252,40 @@ function decreaseQty(productID) {
         return prod.id === productID;
     });
 
-    existingProduct.quantity--;
+    let checkqty = existingProduct.quantity - 1;
+    if (checkqty > 1) {
+        existingProduct.quantity--;
+    } else {
+        if (existingProduct.quantity == 1) {
+            alert("Do you really want to remove this item to use Remove Button");
+        }
+        existingProduct.quantity = 1;
+
+    }
 
     showCart();
 }
+
+
+function removeItem(productID) {
+    cart = cart.filter(function (prod) {
+        return prod.id !== productID;
+    });
+    showCart();
+    document.getElementById("qty").firstChild.textContent = cart.length;
+}
+
+function searchProduct(){
+    console.log("HELLO");
+    let searchText = document.getElementById("search").value;
+    console.log(searchText);
+    const filterProducts = products.filter(function(prod){
+        return prod.name.toLowerCase().includes(searchText.toLowerCase());
+    });
+    console.log(filterProducts);
+    showProducts(filterProducts);
+}
+
+
+
+

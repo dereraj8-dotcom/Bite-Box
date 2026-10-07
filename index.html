@@ -21,6 +21,8 @@
       integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
@@ -181,7 +183,13 @@
         justify-content: center;
         align-items: center;
       }
-
+      .search-box{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 50px;
+      }
+      
       @media (max-width: 900px) {
         .products-container {
           grid-template-columns: repeat(2, 1fr);
@@ -249,8 +257,12 @@
       <div class="main-content">
         <h2>Our Products</h2>
       </div>
+      <div class="search-box" id="search-container" placeholder="search Product">
+          <label for="search">Search : </Search></label><input type="search"  placeholder="search Product" class="search-container" id="search">
+        </div>
 
       <div class="products-container" id="products-container">
+        
         <!-- <div class="card">
 
       <section class="product-logo">
